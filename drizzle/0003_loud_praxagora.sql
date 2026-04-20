@@ -1,0 +1,21 @@
+CREATE TABLE `vouchers` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`voucherNumber` varchar(50) NOT NULL,
+	`type` enum('receipt','payment') NOT NULL,
+	`date` date NOT NULL,
+	`amount` decimal(15,2) NOT NULL,
+	`currency` varchar(10) NOT NULL DEFAULT 'SAR',
+	`payeeName` varchar(255) NOT NULL,
+	`payeeType` enum('client','employee','supplier','other') NOT NULL DEFAULT 'other',
+	`account` varchar(255) NOT NULL,
+	`paymentMethod` enum('cash','bank_transfer','check','other') NOT NULL DEFAULT 'cash',
+	`referenceNumber` varchar(100),
+	`description` text NOT NULL,
+	`status` enum('draft','approved','cancelled') NOT NULL DEFAULT 'draft',
+	`approvedBy` varchar(255),
+	`notes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `vouchers_id` PRIMARY KEY(`id`)
+);

@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1776614457725,
+      "tag": "0000_slimy_annihilus",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1776614570849,
+      "tag": "0001_wild_whistler",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1776645126596,
+      "tag": "0002_slippery_millenium_guard",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1776646084596,
+      "tag": "0003_loud_praxagora",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1776647123712,
+      "tag": "0004_opposite_omega_flight",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1776652401683,
+      "tag": "0005_tearful_yellow_claw",
+      "breakpoints": true
+    }
+  ]
+}

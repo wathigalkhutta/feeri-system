@@ -1,0 +1,61 @@
+CREATE TABLE `internalMessages` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`senderId` int NOT NULL,
+	`senderName` varchar(255) NOT NULL,
+	`recipientId` int,
+	`recipientName` varchar(255),
+	`groupId` varchar(100),
+	`groupName` varchar(255),
+	`subject` varchar(500),
+	`body` text NOT NULL,
+	`messageType` enum('direct','group','broadcast') NOT NULL DEFAULT 'direct',
+	`status` enum('sent','delivered','read') NOT NULL DEFAULT 'sent',
+	`isRead` boolean NOT NULL DEFAULT false,
+	`parentMessageId` int,
+	`attachmentUrl` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `internalMessages_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `opportunities` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`description` text,
+	`source` enum('advertisement','client','partnership','marketing','referral','other') NOT NULL DEFAULT 'other',
+	`status` enum('new','negotiating','won','lost','on_hold') NOT NULL DEFAULT 'new',
+	`value` decimal(15,2),
+	`currency` varchar(10) NOT NULL DEFAULT 'SAR',
+	`probability` int DEFAULT 50,
+	`clientName` varchar(255),
+	`contactPerson` varchar(255),
+	`contactEmail` varchar(255),
+	`contactPhone` varchar(50),
+	`expectedCloseDate` date,
+	`convertedToProjectId` int,
+	`notes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `opportunities_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `projects` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`nameAr` varchar(255) NOT NULL,
+	`nameEn` varchar(255),
+	`description` text,
+	`status` enum('new','in_progress','completed','on_hold','cancelled') NOT NULL DEFAULT 'new',
+	`priority` enum('low','medium','high','critical') NOT NULL DEFAULT 'medium',
+	`progress` int NOT NULL DEFAULT 0,
+	`startDate` date,
+	`endDate` date,
+	`budget` decimal(15,2),
+	`clientName` varchar(255),
+	`teamMembers` text,
+	`tags` varchar(500),
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `projects_id` PRIMARY KEY(`id`)
+);
