@@ -322,26 +322,6 @@ export default function Login() {
               )}
             </button>
           </form>
-
-          {/* Credentials hint */}
-          <div className="mt-6 p-4 rounded-xl" style={{ background: 'oklch(0.18 0.025 265)', border: '1px solid oklch(0.26 0.02 265)' }}>
-            <p className="text-xs font-semibold mb-2" style={{ color: 'oklch(0.60 0.01 265)' }}>
-              {lang === 'ar' ? 'بيانات الدخول التجريبية:' : 'Demo credentials:'}
-            </p>
-            <div className="space-y-1.5">
-              {demoUsers.map(u => (
-                <div key={u.id} className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1.5">
-                    <span style={{ color: roleLabels[u.role].color }}>{roleLabels[u.role].icon}</span>
-                    <span style={{ color: 'oklch(0.70 0.01 265)' }}>{lang === 'ar' ? roleLabels[u.role].ar : roleLabels[u.role].en}</span>
-                  </div>
-                  <span className="font-mono" style={{ color: 'oklch(0.55 0.01 265)', fontSize: '10px' }}>
-                    {u.email} / {u.password}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
